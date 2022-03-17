@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CVMTest.Models.Coffee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CofeeType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Characteristics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoffeeDecoratrion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CofeeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Characteristics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoffeeDecoratrion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CofeeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CofeeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CofeeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
